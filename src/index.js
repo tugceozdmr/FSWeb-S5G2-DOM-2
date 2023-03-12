@@ -1,122 +1,125 @@
 import './less/index.less'
 
 // Örnek bir event kullanımı aşağıdadır. Çalıştırmak için comment dışına alın
-
-// document.querySelector("h1").addEventListener("click", function (e) {
-//     alert("Bana tıkladın!")
-// });
-
-//  /*ANASAYFA , HAKKIMIZDA , BLOG VE İLETİŞMİ AYRI AYRI SEÇİP HER BİRİNE FARKLI YAZI YAZDIRMAK(UZUN YOL)*/
-// const deneme=document.querySelectorAll('.nav-link');
-// deneme[0].addEventListener("click", function(e){
-//     alert("Bana tıkladığını göster");
-// }
-// )
+document.querySelector("h1").addEventListener("click",function(e){
+alert("Bana tıkladın!")
+});
 
 
-// const deneme2=document.querySelectorAll('.nav-link');
-// deneme[1].addEventListener("click", function(e){
-//     alert("Görüntülendi mi?");
-// }
-// )
+// Kodlar buraya gelecek!
 
 
-// const deneme3=document.querySelectorAll('.nav-link');
-// deneme[2].addEventListener("click", function(e){
-//     alert("Evet");
-// }
-// )
+window.addEventListener("load", (event) => {
+  document.querySelector(".nav-link").style.color="red"
+});
 
+const tumResimler = document.querySelectorAll("img")
 
-// const deneme4=document.querySelectorAll('.nav-link');
-// deneme[3].addEventListener("click", function(e){
-//     alert("Başardın");
-// }
-// )
+tumResimler.forEach((resim) => {
+    resim.addEventListener("dblclick", (event) => {
+    resim.style.filter = "grayscale(100%)"; 
+    })
+})
 
-// //ANASAYFA , HAKKIMIZDA , BLOG VE İLETİŞİMİ BİRLİKTE SEÇİP, HER BİRİNDE AYNI YAZIYI GÖRMEK İÇİN //
+tumResimler.forEach((resim) => {
+    resim.addEventListener("click", (event) => {
+    resim.style.filter = "unset"; 
+    })
+})
 
-// const anchors=document.querySelectorAll('.nav-link');
-// anchors.forEach((currentAnchor) => {
-//     currentAnchor.addEventListener("click", function (e) {
-//         alert("Bana tıkladın!")
-//     }
-//     )
-// });
+document.querySelector(".intro img").addEventListener("click", function(e){
+console.log("Resme tıkladın!")
+})
 
-// const baslık= document.querySelector('header');
-// const otobus=document.querySelector("h1");
-// otobus.addEventListener('click', (event) => {  
-//     baslık.style.backgroundColor = 'pink'; });
-    
-    
-// const baslık1= document.querySelector('header');
-// const bus=document.querySelector(".nav-link");
-// bus[1].addEventListener('click', (event) => {  
-//     baslık1.style.backgroundColor = 'blue'; });
+document.querySelector(".intro p").addEventListener("wheel", myFunc)
 
-
-
-//  load yöntemi
-const ilkNavItem = document.querySelectorAll('.nav-link');
-ilkNavItem.forEach((currentAnc) => {
-    window.addEventListener("load", (event) => {
-        currentAnc.style.display = 'block';
-    });
+function myFunc(e) {
+    e.target.style.color="orangered"
 }
-);
 
-// mouseover yöntemi
-const resimler = document.querySelectorAll('img');
-resimler.forEach((resim) => {
-    resim.addEventListener("mouseover", (event) => {
-        resim.style.filter = 'grayscale(100%)';
-    });
-}
-);
+document.querySelectorAll(".text-content p")[0].addEventListener("click", myFunc)
 
-//doubleclick yöntemi
+document.querySelectorAll(".text-content p")[1].addEventListener("click", function(e) {
+    e.target.style.fontSize = "20px"
+})
 
-const imageAll = document.querySelectorAll('img');
-imageAll.forEach((oddImage) => {
-    oddImage.addEventListener("dblclick", (event) => {
-        oddImage.style.filter = 'unset';
-    });
-}
-);
+document.querySelectorAll(".destination div")[0].addEventListener("mouseover", function(e) {
+    e.target.style.backgroundColor="rgb(255, 250, 205)";    
+})
+
+document.querySelectorAll(".destination div")[0].addEventListener("mouseout", function(e) {
+    e.target.style.backgroundColor="#17A2B8";    
+})
+
+document.querySelectorAll(".destination div")[0].addEventListener("mouseover", function(e) {
+    e.target.textContent= "Kaçmaz Fırsat!"  
+})
+
+document.querySelectorAll(".destination div")[0].addEventListener("mouseout", function(e) {
+    e.target.textContent= "Beni de Al!"   
+})
 
 
-//wheel yöntemi
-const imageAll2 = document.querySelectorAll('img');
-imageAll2.forEach((oddImage2) => {
-    oddImage2.addEventListener("wheel", (event) => {
-        event.preventDefault();
-        scale += event.deltaY * -0.01;
-        scale = Math.min(Math.max(.125, scale), 4);
-        oddImage2.style.transform = `scale(${scale})`;
-    });
-}
-);
-let scale = 1;
+document.querySelectorAll(".destination div")[1].addEventListener("mouseover", function(e) {
+    e.target.style.backgroundColor="rgb(216, 191, 216)";    
+})
 
-//keydown yöntemi
+document.querySelectorAll(".destination div")[1].addEventListener("mouseover", function(e) {
+    e.target.textContent= "Kaçmaz Fırsat!"  
+})
+document.querySelectorAll(".destination div")[1].addEventListener("mouseout", function(e) {
+    e.target.textContent= "Beni de Al!"   
+})
+
+document.querySelectorAll(".destination div")[1].addEventListener("mouseout", function(e) {
+    e.target.style.backgroundColor="#17A2B8";    
+})
+
+document.querySelectorAll(".destination div")[2].addEventListener("mouseover", function(e) {
+    e.target.style.backgroundColor="rgb(255, 245, 238)";    
+})
+
+document.querySelectorAll(".destination div")[2].addEventListener("mouseout", function(e) {
+    e.target.style.backgroundColor="#17A2B8";    
+})
+
+document.querySelectorAll(".destination div")[2].addEventListener("mouseover", function(e) {
+    e.target.textContent= "Kaçmaz Fırsat!"  
+})
+
+document.querySelectorAll(".destination div")[2].addEventListener("mouseout", function(e) {
+    e.target.textContent= "Beni de Al!"   
+})
+
 const input = document.querySelector('input');
 const log = document.getElementById('log');
+const tumButonlar = document.querySelectorAll(".btn")
 
 input.addEventListener('keydown', logKey);
-
+input.addEventListener("keyup",logKey1)
 function logKey(e) {
-    log.textContent += ` ${e.code}`;
+ // log.textContent += ` ${e.key}`;  //e.code
+  if(e.key == 1) {
+    tumButonlar[0].style.fontSize="30px"
+  }
 }
 
-//focus yöntemi
-input.addEventListener('focus', (e) => {
-    input.style.background = "pink";
+function logKey1(e) {
+    // log.textContent += ` ${e.key}`;  //e.code
+     if(e.key == 1) {
+       tumButonlar[1].style.fontSize="30px"
+     } else if (e.key==2) {
+    tumButonlar[2].style.fontSize="35px"
+     } else {
+        input.setAttribute("disabled","disabled")
+     }
 }
-)
 
-//resize yöntemi
 
-window.addEventListener('resize', (e) => {
-    log.textContent = window.innerHeight;
-});
+input.addEventListener('focus', (event) => {
+    event.target.style.background = 'pink';
+  });
+
+window.addEventListener("resize", (e) => {
+    log.textContent =window.innerWidth;
+})
